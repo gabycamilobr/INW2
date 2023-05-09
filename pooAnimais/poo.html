@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pag 2</title>
+</head>
+<body>
+    <script>
+//classe carro é a classe pai
+    class Carro{
+
+        //Static define que a variavel alerta em todos objetos vao apontar para as mesmas variaveis, nn vai ter uma variavel alerta para cada objeto da classe
+        static alerta=true
+
+        constructor(tpCarro,tpComb){
+            this.tipo=tpCarro //1=Passeio; 2=Transporte; 3=Combate
+            this.qtdeComb=100
+            this.ligado=false
+            this.tipoComb=tpComb //1=gasolina; 2=diesel; 3=etanol
+        }
+        info(){     
+            console.log("Qtde Combus..: " + this.qtdeComb)
+            console.log("Ligado.......: " + (this.ligado ? "Sim" : "Não"))
+            console.log("Tipo Comb....: " + this.tipoComb)
+            if(this.tipo==1){
+                console.log("Tipo Carro: Passeio")
+            }else if(this.tipo==2){
+                console.log("Tipo Carro: Transporte")
+            }else{
+                console.log("Tipo Carro: Combate")
+            }
+        }
+
+        set setligado(t){
+            this.ligado=t
+        }
+        get getligado(){
+            return this.ligado
+        }
+        set setComb(v){
+            if(v<0 || v>100){
+                alert("Valor invalido")
+            }else{
+                this.qtdeComb=v
+            }
+        }
+        get getComb(){
+            return this.qtdeComb
+        }
+}
+
+    class CarroCombate extends Carro{
+        constructor(potTiro){
+            super(3,2)
+            this.tiro=1000
+            this.potTiro=potTiro
+            this.blindagem=100
+        }
+        info(){
+            super.info()
+            console.log("Qtde Tiros...: " + this.tiro)
+            console.log("Pot do Tiro..: " + this.potTiro)
+            console.log("Blindagem....: " + this.blindagem)
+            console.log("-----------")
+        }
+    }
+// através do super eu tenho acesso aos elementos do pai, posso definir caracteristicas individuais em cada um dos tipos carroa e aos extender uma classe de outra classe, a classe filho herda todas as caracteristicas da classe pai
+    class CarroTransporte extends Carro{
+        constructor(){
+            super(2,2)
+        }
+    }
+
+let c1=new carroCombate(100)
+let c2=new carroTransporte()
+
+c1.setligado=true
+c1.info()
+c2.info()
+
+</script>  
+</body>
+</html>
