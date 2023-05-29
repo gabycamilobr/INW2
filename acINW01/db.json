@@ -1,0 +1,33 @@
+{
+  "produtos": [
+  {
+  "id": 1,
+  "descricao": "Tênis Nike Downshifter 12",
+  "estoque": 10,
+  "valor": 205.50,
+  "imagem":"img/tenisnike.jpg"
+  },
+  {
+  "id": 2,
+  "descricao": "Bola de Futebol Campo",
+  "estoque": 10,
+  "valor": 79.99,
+  "imagem":"img/bola.jpg"
+  },
+  {
+  "id": 3,
+  "descricao": "Camiseta Corinthians Pré Jogo",
+  "estoque": 10,
+  "valor": 210.30,
+  "imagem":"img/camiseta.jpg"
+  },
+  {
+    "id": 4,
+    "descricao": "Calça de Ciclismo Feminina",
+    "estoque": 10,
+    "valor": 69.99,
+    "imagem":"img/calca.jpg"
+    }
+  ]
+ }
+ 
