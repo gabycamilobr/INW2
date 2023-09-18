@@ -1,8 +1,8 @@
-//requisitando o pacote mongoose
+// requisitando o pacote mongoose
 const mongoose = require('mongoose');
 
 //criar a chave de 
-mongoose.connect('mongodb://127.0.0.1:27017/escola',
+mongoose.connect('mongodb://127.0.0.1:27017/agenda',
     {
         useNewUrlParser : true,
         useUnifiedTopology : true,
@@ -21,37 +21,35 @@ db.once('open', function(){
 })
 
 
-const alunoSchema = new mongoose.Schema({
+const pessoasSchema = new mongoose.Schema({
 
-    matricula : String,
+    numero : Number,
     nome: String,
     idade: Number,
-    turma: String,
+    email: String,
 
 });
 
 //2 - criando a model
 
-const Alunos = mongoose.model('Alunos', alunoSchema)
+const Pessoas = mongoose.model('Pessoas', pessoasSchema)
  
 //3 - colocar dados dentro dessa collection
 
-const paulo = new Alunos({
-    matricula: 'RM212',
-    nome: 'Paulo Silva',
-    idade: 16,
-    turma: '2MIB'
-});
-
-paulo.save();
-
-const mary = new Alunos({
-    matricula: 'RM288',
-    nome: 'Mary Oliveira',
+const epaminondas = new Pessoas({
+    numero: 1,
+    nome: 'Epaminondas',
     idade: 17,
-    turma: '2MIB'
+    email: 'epa@gmail.com'
 });
 
-mary.save();
+epaminondas.save();
 
- 
+const carla = new Pessoas({
+    numero: 2,
+    nome: 'Carla',
+    idade: 18,
+    email: 'carla@gmail.com'
+});
+
+carla.save();
